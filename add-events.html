@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Event</title>
+  <link rel="stylesheet" href="css/styles.css"> <!-- External CSS link -->
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="add-events.html" class="btn">Add Events</a></li> <!-- Link to Add Events Page -->
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Add Event Form Section -->
+  <div class="auth-container">
+    <div class="form-container">
+      <h2>Add New Event</h2>
+      <form action="/submit-event" method="POST" enctype="multipart/form-data">
+        <!-- Event Name -->
+        <input type="text" name="event-name" placeholder="Event Name" required>
+
+        <!-- Event Type -->
+        <select name="event-type" required>
+          <option value="" disabled selected>Select Event Type</option>
+          <option value="conference">Conference</option>
+          <option value="workshop">Workshop</option>
+          <option value="meetup">Meetup</option>
+          <option value="webinar">Webinar</option>
+        </select>
+
+        <!-- Event Date -->
+        <input type="date" name="event-date" required>
+
+        <!-- Event Time -->
+        <input type="time" name="event-time" required>
+
+        <!-- Event Description -->
+        <textarea name="event-description" placeholder="Event Description" rows="4" required></textarea>
+
+        <!-- Event Location -->
+        <input type="text" name="event-location" placeholder="Event Location" required>
+
+        <!-- Event Picture -->
+        <input type="file" name="event-picture" accept="image/*" required>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn">Add Event</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Your Company. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript to Handle Form Validation and Image Preview -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const eventForm = document.querySelector('form');
+      const eventImageInput = document.querySelector('input[type="file"]');
+      const eventImagePreview = document.createElement('img');
+      eventImagePreview.style.maxWidth = '200px';  // Set max width for image preview
+      eventImagePreview.style.marginTop = '10px';
+
+      // Insert image preview below the file input
+      eventImageInput.insertAdjacentElement('afterend', eventImagePreview);
+
+      // Handle image preview when a file is selected
+      eventImageInput.addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (file && file.type.startsWith('image')) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            eventImagePreview.src = event.target.result;
+          };
+          reader.readAsDataURL(file);
+        } else {
+          eventImagePreview.src = '';  // Clear the preview if the file is not an image
+          alert('Please select a valid image file.');
+        }
+      });
+
+      // Form submission handling
+      eventForm.addEventListener('submit', function (e) {
+        const eventName = document.querySelector('input[name="event-name"]').value;
+        const eventType = document.querySelector('select[name="event-type"]').value;
+        const eventDate = document.querySelector('input[name="event-date"]').value;
+        const eventTime = document.querySelector('input[name="event-time"]').value;
+        const eventDescription = document.querySelector('textarea[name="event-description"]').value;
+        const eventLocation = document.querySelector('input[name="event-location"]').value;
+
+        // Validate form fields
+        if (!eventName || !eventType || !eventDate || !eventTime || !eventDescription || !eventLocation) {
+          e.preventDefault();  // Prevent form submission
+          alert('Please fill in all fields.');
+          return;
+        }
+
+        // You can add more validation as needed
+        alert('Event added successfully!');
+      });
+    });
+  </script>
+</body>
+</html>
