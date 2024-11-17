@@ -1,0 +1,115 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f1eb;
+    margin: 0;
+    padding: 0;
+    color: #5c4033;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #3e2a47;
+    padding: 15px 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    color: #e4c6a0;
+  }
+  
+  /* Auth Container */
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
+  }
+  
+  .form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  h2 {
+    color: #3e2a47;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Elements */
+  input[type="text"], input[type="date"], input[type="time"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #d1c0b3;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #5c4033;
+  }
+  
+  input[type="file"] {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #d1c0b3;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  button[type="submit"] {
+    background-color: #5c4033;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3e2a47;
+  }
+  
+  /* Image Preview */
+  img {
+    margin-top: 15px;
+    max-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #3e2a47;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+  }
+  
